@@ -718,6 +718,8 @@ height = 33.4101
 
 [sub_resource type="Animation" id="Animation_x25h3"]
 resource_name = "Idle_down"
+length = 0.75
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -744,6 +746,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_knlco"]
+length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -770,6 +774,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_f8xhu"]
+length = 0.31
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -797,6 +802,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_3saq7"]
 resource_name = "Idle"
+length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -851,6 +857,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_cqud5"]
+length = 0.53
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -877,6 +885,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_mm6gf"]
+length = 0.53
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -903,6 +912,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_0eg25"]
+length = 0.53
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -929,6 +939,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_uld4h"]
+length = 0.53
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -976,7 +987,6 @@ gi_mode = 2
 pixel_size = 0.5
 sprite_frames = SubResource("SpriteFrames_htn4h")
 animation = &"idle_down"
-frame = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
