@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://clid1430bou25"]
 
-[ext_resource type="Script" path="res://Example/example_enemy.gd" id="1_6nmso"]
-[ext_resource type="Script" path="res://addons/3dEnemyToolkit/FollowTarget.gd" id="2_w5i6f"]
-[ext_resource type="Script" path="res://addons/3dEnemyToolkit/RandomTarget3D.gd" id="3_lsadq"]
-[ext_resource type="Script" path="res://addons/3dEnemyToolkit/SimpleVision3D.gd" id="4_ivo35"]
+[ext_resource type="Script" uid="uid://c5mocjxinjcgg" path="res://Example/example_enemy.gd" id="1_6nmso"]
+[ext_resource type="Script" uid="uid://bh7lyl31ctrru" path="res://addons/3dEnemyToolkit/FollowTarget.gd" id="2_w5i6f"]
+[ext_resource type="Script" uid="uid://b60ieu4l8b7wu" path="res://addons/3dEnemyToolkit/RandomTarget3D.gd" id="3_lsadq"]
+[ext_resource type="Script" uid="uid://cu7pisnw111lb" path="res://addons/3dEnemyToolkit/SimpleVision3D.gd" id="4_ivo35"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ck8vg"]
 

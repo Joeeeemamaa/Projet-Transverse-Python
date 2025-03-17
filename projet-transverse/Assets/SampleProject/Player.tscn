@@ -1,7 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://xpbhai8nlgtx"]
 
-[ext_resource type="Script" path="res://SampleProject/Scripts/Player.gd" id="1_ecbsx"]
-[ext_resource type="Texture2D" uid="uid://c3v5jdyj2jl4e" path="res://SampleProject/Sprites/MC.png" id="1_qiynj"]
+[ext_resource type="Texture2D" uid="uid://c3v5jdyj2jl4e" path="res://Assets/SampleProject/Sprites/MC.png" id="1_qiynj"]
+
+[sub_resource type="Resource" id="Resource_p0gbb"]
+metadata/__load_path__ = "res://SampleProject/Scripts/Player.gd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yj7bn"]
 size = Vector2(21.5, 62)
@@ -88,16 +90,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqeoy"]
 _data = {
-"Fall": SubResource("Animation_mul1d"),
-"Idle": SubResource("Animation_76fpo"),
-"Jump": SubResource("Animation_58w5b"),
-"RESET": SubResource("Animation_owew4"),
-"Run": SubResource("Animation_l0tvd")
+&"Fall": SubResource("Animation_mul1d"),
+&"Idle": SubResource("Animation_76fpo"),
+&"Jump": SubResource("Animation_58w5b"),
+&"RESET": SubResource("Animation_owew4"),
+&"Run": SubResource("Animation_l0tvd")
 }
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_ecbsx")
+script = SubResource("Resource_p0gbb")
 metadata/player = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

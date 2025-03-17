@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://debgde56f1x6f"]
 
-[ext_resource type="Texture2D" uid="uid://qq6p1ucxcjs8" path="res://addons/MetroidvaniaSystem/Themes/SotN/PlayerLocation.png" id="1_2iveq"]
+[sub_resource type="Resource" id="Resource_pfvkh"]
+metadata/__load_path__ = "res://addons/MetroidvaniaSystem/Themes/SotN/PlayerLocation.png"
 
 [sub_resource type="Animation" id="Animation_a76ue"]
 resource_name = "Animate"
@@ -59,13 +60,13 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhx6n"]
 _data = {
-"Animate": SubResource("Animation_a76ue"),
-"RESET": SubResource("Animation_4lnw3")
+&"Animate": SubResource("Animation_a76ue"),
+&"RESET": SubResource("Animation_4lnw3")
 }
 
 [node name="PlayerLocation" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.0627451)
-texture = ExtResource("1_2iveq")
+texture = SubResource("Resource_pfvkh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Animate"

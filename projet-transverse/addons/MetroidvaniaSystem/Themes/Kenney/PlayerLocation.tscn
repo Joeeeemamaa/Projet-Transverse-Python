@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dube8r7swlh2o"]
 
-[ext_resource type="Texture2D" uid="uid://h7gj3trquvqv" path="res://addons/MetroidvaniaSystem/Themes/Kenney/PlayerLocation.png" id="1_w5j3j"]
+[sub_resource type="Resource" id="Resource_4a1aa"]
+metadata/__load_path__ = "res://addons/MetroidvaniaSystem/Themes/Kenney/PlayerLocation.png"
 
 [node name="PlayerLocation" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_w5j3j")
+texture = SubResource("Resource_4a1aa")

@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://csibk51vvt46y"]
 
-[ext_resource type="Texture2D" uid="uid://de1100qcvyyhb" path="res://addons/MetroidvaniaSystem/Themes/Zeric/PlayerLocation.png" id="1_440g2"]
+[sub_resource type="Resource" id="Resource_6n84g"]
+metadata/__load_path__ = "res://addons/MetroidvaniaSystem/Themes/Zeric/PlayerLocation.png"
 
 [node name="PlayerLocation" type="Sprite2D"]
-texture = ExtResource("1_440g2")
+texture = SubResource("Resource_6n84g")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://be2aktyakxevv"]
+
+[ext_resource type="PackedScene" uid="uid://cw1cnd2tc7gy0" path="res://scenes/Npc/CollisionShape3D.tscn" id="1_t2loi"]
+[ext_resource type="PackedScene" uid="uid://d2wlns5j44yv0" path="res://scenes/Npc/NavigationAgent3D.tscn" id="2_7lg0e"]
+[ext_resource type="PackedScene" uid="uid://07smbr52e2ww" path="res://scenes/Npc/Area3D.tscn" id="3_pdtc3"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_bpun1"]
+
+[node name="Npc" type="CharacterBody3D"]
+
+[node name="CollisionShape3d" parent="." instance=ExtResource("1_t2loi")]
+
+[node name="NavigationAgent3d" parent="." instance=ExtResource("2_7lg0e")]
+
+[node name="Area3d" parent="." instance=ExtResource("3_pdtc3")]
+
+[node name="CollisionShape3d" parent="Area3d" instance=ExtResource("1_t2loi")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("AnimatedTexture_bpun1")
+metadata/marchand = false

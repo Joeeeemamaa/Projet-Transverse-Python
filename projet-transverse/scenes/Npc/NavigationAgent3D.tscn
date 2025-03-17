@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d2wlns5j44yv0"]
+
+[node name="NavigationAgent3d" type="NavigationAgent3D"]

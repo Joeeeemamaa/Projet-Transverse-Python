@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d28u2q2eihye7"]
 
-[ext_resource type="Texture2D" uid="uid://v7eail24xpqg" path="res://addons/MetroidvaniaSystem/Themes/RR/PlayerLocation.png" id="1_8jnds"]
+[sub_resource type="Resource" id="Resource_04phl"]
+metadata/__load_path__ = "res://addons/MetroidvaniaSystem/Themes/RR/PlayerLocation.png"
 
 [sub_resource type="Animation" id="Animation_ys7gg"]
 resource_name = "Idle"
@@ -35,12 +36,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n0w0r"]
 _data = {
-"Idle": SubResource("Animation_ys7gg"),
-"RESET": SubResource("Animation_tvuic")
+&"Idle": SubResource("Animation_ys7gg"),
+&"RESET": SubResource("Animation_tvuic")
 }
 
 [node name="PlayerLocation" type="Sprite2D"]
-texture = ExtResource("1_8jnds")
+texture = SubResource("Resource_04phl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
