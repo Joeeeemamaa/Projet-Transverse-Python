@@ -73,7 +73,7 @@ func _open_resource(resource:Resource) -> void:
 		EditorMode.TEXT:
 			%TextEditor.load_timeline(current_resource)
 	$NoTimelineScreen.hide()
-	%TimelineName.text = DialogicResourceUtil.get_unique_identifier(current_resource.resource_path)
+	%TimelineName.text = current_resource.get_identifier()
 	play_timeline_button.disabled = false
 
 
@@ -102,14 +102,14 @@ func _input(event: InputEvent) -> void:
 
 
 ## Method to play the current timeline. Connected to the button in the sidebar.
-func play_timeline() -> void:
+func play_timeline(index := -1) -> void:
 	_save()
 
 	var dialogic_plugin := DialogicUtil.get_dialogic_plugin()
 
 	# Save the current opened timeline
 	DialogicUtil.set_editor_setting('current_timeline_path', current_resource.resource_path)
-
+	DialogicUtil.set_editor_setting('play_from_index', index)
 	DialogicUtil.get_dialogic_plugin().get_editor_interface().play_custom_scene("res://addons/dialogic/Editor/TimelineEditor/test_timeline_scene.tscn")
 
 
@@ -118,36 +118,24 @@ func toggle_editor_mode() -> void:
 	match current_editor_mode:
 		EditorMode.VISUAL:
 			current_editor_mode = EditorMode.TEXT
-<<<<<<< Updated upstream
 			if %VisualEditor.is_loading_timeline():
 				%VisualEditor.cancel_loading()
 			else:
 				%VisualEditor.save_timeline()
-=======
-			%VisualEditor.save_timeline()
->>>>>>> Stashed changes
 			%VisualEditor.hide()
 			%TextEditor.show()
 			%TextEditor.load_timeline(current_resource)
 			%SwitchEditorMode.text = "Visual Editor"
-<<<<<<< Updated upstream
 			_on_search_text_changed(%Search.text)
 		EditorMode.TEXT:
 			_on_search_text_changed.bind("")
-=======
-		EditorMode.TEXT:
->>>>>>> Stashed changes
 			current_editor_mode = EditorMode.VISUAL
 			%TextEditor.save_timeline()
 			%TextEditor.hide()
 			%VisualEditor.load_timeline(current_resource)
 			%VisualEditor.show()
 			%SwitchEditorMode.text = "Text Editor"
-<<<<<<< Updated upstream
 			%VisualEditor.timeline_loaded.connect(_on_search_text_changed.bind(%Search.text), CONNECT_ONE_SHOT)
-=======
-	_on_search_text_changed(%Search.text)
->>>>>>> Stashed changes
 	DialogicUtil.set_editor_setting('timeline_editor_mode', current_editor_mode)
 
 
@@ -164,12 +152,29 @@ func _on_resource_saved() -> void:
 func new_timeline(path:String) -> void:
 	_save()
 	var new_timeline := DialogicTimeline.new()
+	if not path.ends_with(".dtl"):
+		path = path.trim_suffix(".")
+		path += ".dtl"
 	new_timeline.resource_path = path
 	new_timeline.set_meta('timeline_not_saved', true)
 	var err := ResourceSaver.save(new_timeline)
 	EditorInterface.get_resource_filesystem().update_file(new_timeline.resource_path)
 	DialogicResourceUtil.update_directory('dtl')
 	editors_manager.edit_resource(new_timeline)
+
+
+func update_audio_channel_cache(list:PackedStringArray) -> void:
+	var timeline_directory := DialogicResourceUtil.get_timeline_directory()
+	var channel_directory := DialogicResourceUtil.get_audio_channel_cache()
+	if current_resource != null:
+		for i in timeline_directory:
+			if timeline_directory[i] == current_resource.resource_path:
+				channel_directory[i] = list
+
+	# also always store the current timelines channels for easy access
+	channel_directory[""] = list
+
+	DialogicResourceUtil.set_audio_channel_cache(channel_directory)
 
 
 func _ready() -> void:
@@ -181,14 +186,14 @@ func _ready() -> void:
 	%SwitchEditorMode.pressed.connect(toggle_editor_mode)
 	%SwitchEditorMode.custom_minimum_size.x = 200 * DialogicUtil.get_editor_scale()
 
+	%Shortcuts.icon = get_theme_icon("InputEventShortcut", "EditorIcons")
+	%Shortcuts.pressed.connect(%ShortcutsPanel.open)
+
 	%SearchClose.icon = get_theme_icon("Close", "EditorIcons")
 	%SearchUp.icon = get_theme_icon("MoveUp", "EditorIcons")
 	%SearchDown.icon = get_theme_icon("MoveDown", "EditorIcons")
 
-<<<<<<< Updated upstream
 	%ProgressSection.hide()
-=======
->>>>>>> Stashed changes
 
 
 func _on_create_timeline_button_pressed() -> void:
@@ -257,7 +262,6 @@ func _on_search_up_pressed() -> void:
 
 #endregion
 
-<<<<<<< Updated upstream
 #region PROGRESS
 
 func set_progress(percentage:float, text := "") -> void:
@@ -268,6 +272,3 @@ func set_progress(percentage:float, text := "") -> void:
 	%ProgressLabel.visible = not text.is_empty()
 
 #endregion
-=======
-
->>>>>>> Stashed changes
