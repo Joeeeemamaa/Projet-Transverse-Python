@@ -722,8 +722,8 @@ radius = 5.8511
 height = 12.4903
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_su8be"]
-radius = 7.0
-height = 16.0
+radius = 4.60013
+height = 14.2563
 
 [sub_resource type="Animation" id="Animation_x25h3"]
 resource_name = "Idle_down"

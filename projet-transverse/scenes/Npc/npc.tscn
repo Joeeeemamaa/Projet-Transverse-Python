@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dashtl0o7m0ah" path="res://Assets/giphy-ezgif.com-gif-maker.png" id="4_7lg0e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7lg0e"]
-radius = 0.171157
+radius = 0.171156
 height = 0.342313
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pdtc3"]
