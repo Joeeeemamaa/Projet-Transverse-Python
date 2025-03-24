@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=3 uid="uid://be2aktyakxevv"]
+[gd_scene load_steps=160 format=3 uid="uid://be2aktyakxevv"]
 
 [ext_resource type="Script" uid="uid://b87bqm1kcirn3" path="res://scenes/Npc/npc.gd" id="1_pdtc3"]
 [ext_resource type="PackedScene" uid="uid://cw1cnd2tc7gy0" path="res://scenes/Npc/CollisionShape3D.tscn" id="1_t2loi"]
@@ -11,8 +11,8 @@ radius = 0.171157
 height = 0.342313
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pdtc3"]
-radius = 3.99277
-height = 7.98555
+radius = 1.85785
+height = 3.7512
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdtc3"]
 atlas = ExtResource("4_7lg0e")
@@ -1065,6 +1065,14 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="Animation" id="Animation_pdtc3"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpun1"]
+_data = {
+&"new_animation": SubResource("Animation_pdtc3")
+}
+
 [node name="Npc" type="CharacterBody3D"]
 safe_margin = 0.3
 script = ExtResource("1_pdtc3")
@@ -1082,7 +1090,17 @@ shape = SubResource("CapsuleShape3D_pdtc3")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nguf")
-frame_progress = 0.254949
+autoplay = "default"
+frame_progress = 0.736499
 metadata/marchand = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bpun1")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")
+
 [connection signal="body_entered" from="Area3d" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3d" to="." method="_on_area_3d_body_exited"]
